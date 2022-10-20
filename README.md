@@ -1,73 +1,39 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Breaking Bad
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Esse projeto é sobre a série Breaking Bad.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+É, basicamente, um CRUD de personagens.
 
-## Description
+Será possível cadastrar personagens e saber em qual episódio eles apareceram.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Como rodar em ambiente local
+Faça um clone desse repositório e rode o comando `npm install`
 
-## Installation
+Renomeio o arquivo `.env.example` para `.env` e preencha todos os dados necessários.
 
-```bash
-$ npm install
+```
+DB_NAME: Nome do banco de dados
+DB_HOST: Endereço que o banco de dados está rodando
+DB_PORT: Porta do banco de dados
+DB_USERNAME: Usuário
+DB_PASSWORD: Senha
 ```
 
-## Running the app
+Rode o comando `npm run start` e o projeto será iniciado no seu ambiente local.
 
-```bash
-# development
-$ npm run start
+## Deploy
 
-# watch mode
-$ npm run start:dev
+O deploy sugerido é utilizando a Google Cloud.
+O processo é simples e intuitivo:
 
-# production mode
-$ npm run start:prod
+```
+1. Crie um projeto na Google Cloud;
+2. Instale a gcloud CLI e faça a autenticação;
+3. Encontre o ID do seu projeto utilizando o comando `gcloud projects list
+` e acesse o mesmo com o comando `gcloud config set project ~ID DO PROJETO~`;
+4. Utilize o comando `gcloud run deploy` para iniciar o deploy;
+5. Selecione o caminho do código e defina um nome;
+6. Permita que a API seja acessada.
 ```
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+Após alguns minutos o deploy será finalizado e será apresentada uma URL para acesso da aplicação.
