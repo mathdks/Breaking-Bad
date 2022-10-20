@@ -94,7 +94,7 @@ export class CharacterService {
       )
       .pipe(
         catchError(() => {
-          throw new HttpException('Esse personagem não existe em Braking Bad.', HttpStatus.NOT_FOUND)
+          throw new HttpException('Não encontramos os episódios.', HttpStatus.NOT_FOUND)
         }),
       );
 
@@ -102,19 +102,19 @@ export class CharacterService {
     let appearIn = []
     let dontAppearIn = []
 
-    episodesList.forEach(el => {
-      if(el.characters.includes(name)) {
+    episodesList.forEach(episode => {
+      if(episode.characters.includes(name)) {
         appearIn.push({
-          season: el.season,
-          ep: el.episode,
-          title: el.title
+          season: episode.season,
+          ep: episode.episode,
+          title: episode.title
         })
       }
       else {
         dontAppearIn.push({
-          season: el.season,
-          ep: el.episode,
-          title: el.title
+          season: episode.season,
+          ep: episode.episode,
+          title: episode.title
         })
       }
     })
